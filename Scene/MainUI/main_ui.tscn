@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://1lknwluq7htl"]
+
+[ext_resource type="Script" uid="uid://cl41510eb5ldc" path="res://Scene/MainUI/main_ui.gd" id="1_82sue"]
+[ext_resource type="Script" uid="uid://qsal34y3mhpr" path="res://Scene/MainUI/相识.gd" id="1_xp8vy"]
+[ext_resource type="Texture2D" uid="uid://vuwva45rv3uu" path="res://Asset/007.jpg" id="2_s3rjv"]
+[ext_resource type="Script" uid="uid://xuupa8maiieo" path="res://Scene/MainUI/话语.gd" id="3_82sue"]
+[ext_resource type="Script" uid="uid://choti8snaxwaw" path="res://Scene/MainUI/picture.gd" id="4_6piqr"]
+[ext_resource type="Script" uid="uid://bqx0l43he0ol1" path="res://Scene/MainUI/messages.gd" id="6_n61pf"]
+
+[node name="MainUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_82sue")
+
+[node name="ColorRects" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BackColor" type="ColorRect" parent="ColorRects"]
+custom_minimum_size = Vector2(720, 1280)
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0.960784, 0.960784, 0.862745, 1)
+
+[node name="底栏" type="ColorRect" parent="ColorRects"]
+custom_minimum_size = Vector2(720, 70)
+layout_mode = 0
+offset_top = 1210.0
+offset_right = 720.0
+offset_bottom = 1280.0
+color = Color(0.908602, 0.905342, 0.690547, 1)
+
+[node name="Buttons" type="HBoxContainer" parent="ColorRects/底栏"]
+custom_minimum_size = Vector2(720, 70)
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 70.0
+theme_override_constants/separation = 80
+alignment = 1
+
+[node name="HUB" type="Button" parent="ColorRects/底栏/Buttons"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "首页"
+flat = true
+
+[node name="心情" type="Button" parent="ColorRects/底栏/Buttons"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "心情
+"
+flat = true
+
+[node name="Settings" type="Button" parent="ColorRects/底栏/Buttons"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "设置
+"
+flat = true
+
+[node name="hub" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="相识" type="Label" parent="hub"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 0
+offset_left = 63.0
+offset_top = 86.0
+offset_right = 319.0
+offset_bottom = 146.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.449043, 0.667623, 0.969668, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "我们已经相识    天"
+script = ExtResource("1_xp8vy")
+
+[node name="Picture" type="Sprite2D" parent="hub"]
+position = Vector2(144, 290)
+scale = Vector2(0.33547, 0.33547)
+texture = ExtResource("2_s3rjv")
+script = ExtResource("4_6piqr")
+
+[node name="话语" type="Label" parent="hub"]
+custom_minimum_size = Vector2(400, 60)
+layout_mode = 0
+offset_left = 278.0
+offset_top = 218.0
+offset_right = 678.0
+offset_bottom = 278.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "你是我最美的遇见"
+script = ExtResource("3_82sue")
+
+[node name="messages" type="ColorRect" parent="hub"]
+custom_minimum_size = Vector2(600, 700)
+layout_mode = 0
+offset_left = 59.0
+offset_top = 447.0
+offset_right = 659.0
+offset_bottom = 1147.0
+color = Color(0.909804, 0.905882, 0.690196, 1)
+script = ExtResource("6_n61pf")
+
+[node name="DateLabel" type="Label" parent="hub/messages"]
+layout_mode = 2
+offset_right = 600.0
+offset_bottom = 20.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqb3dfnj466hc"]
+
+[ext_resource type="Script" uid="uid://d05tmn14hfihh" path="res://Scene/draw_heart.gd" id="1_ri2yj"]
+
+[node name="heart" type="Node2D"]
+script = ExtResource("1_ri2yj")
