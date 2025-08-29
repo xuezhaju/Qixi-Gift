@@ -1,6 +1,7 @@
 extends Control
 
 @onready var rich_text_label: RichTextLabel = $VBoxContainer/ColorRect/RichTextLabel
+@onready var color_rect: ColorRect = $VBoxContainer/ColorRect
 
 # 定义各种情绪的安慰鼓励文本数组
 var happy_texts = [
@@ -82,3 +83,8 @@ func _on_afraid_button_down() -> void:
 	# 随机选择一句恐惧鼓励语
 	var random_text = afraid_texts[randi() % afraid_texts.size()]
 	rich_text_label.text = "😨 害怕时刻\n\n" + random_text
+
+func _process(delta: float) -> void:
+	color_rect.color = Color(Global.main_color)
+	
+	

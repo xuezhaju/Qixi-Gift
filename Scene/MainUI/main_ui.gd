@@ -2,6 +2,7 @@ extends Node
 @onready var hub: Control = $hub
 @onready var settings: Control = $Settings
 @onready var xinqing: Control = $xinqing
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 # 爱心场景预设
@@ -19,6 +20,21 @@ var previous_acceleration = Vector3()
 func _ready():
 	# 确保处理输入
 	set_process(true)
+	 # 设置循环
+	audio_player.stream.loop = true
+	# 播放音频
+	if Global.music:
+		audio_player.play()
+	else:
+		audio_player.stop()
+	
+	Global.mode = "hub"
+	xinqing.hide()
+	xinqing.process_mode = Node.PROCESS_MODE_DISABLED
+	hub.show()
+	hub.process_mode = Node.PROCESS_MODE_INHERIT
+	settings.hide()
+	settings.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _process(delta):
 	# 获取当前时间
@@ -27,6 +43,8 @@ func _process(delta):
 	# 检查是否在冷却时间内
 	if current_time - last_shake_time < shake_cooldown:
 		return
+	
+
 	
 	# 获取加速度计数据
 	previous_acceleration = acceleration
