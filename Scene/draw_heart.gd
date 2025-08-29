@@ -27,7 +27,7 @@ func generate_heart_points():
 func _draw():
 	if visible_points.size() > 1:
 		# 使用更细的线条，从5.0降到2.0
-		draw_polyline(visible_points, heart_color, 2.0, true)
+		draw_polyline(visible_points, heart_color, 4.0, true)
 
 func start_animation():
 	heart_color = Color(randf(), randf(), randf())
@@ -57,4 +57,4 @@ func start_animation():
 
 func update_points(count: int):
 	visible_points = heart_points.slice(0, count)
-	queue_redraw()
+	queue_redraw()   

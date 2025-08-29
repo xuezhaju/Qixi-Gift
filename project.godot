@@ -28,6 +28,14 @@ window/stretch/mode="canvas_items"
 window/per_pixel_transparency/allowed=true
 window/handheld/orientation=1
 
+[gui]
+
+theme/custom_font="uid://co0yowtv78bsv"
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [rendering]
 
 renderer/rendering_method="mobile"

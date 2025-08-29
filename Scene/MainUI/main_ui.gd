@@ -1,4 +1,8 @@
 extends Node
+@onready var hub: Control = $hub
+@onready var settings: Control = $Settings
+@onready var xinqing: Control = $xinqing
+
 
 # 爱心场景预设
 var heart_scene = preload("res://Scene/heart.tscn") # 请替换为你的爱心场景路径
@@ -33,7 +37,7 @@ func _process(delta):
 	var shake_intensity = delta_acceleration.length()
 	
 	# 如果变化率超过阈值，触发摇晃事件
-	if shake_intensity > shake_threshold or Input.is_action_just_pressed("ui_accept"):
+	if shake_intensity > shake_threshold or Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		on_shake_detected()
 		last_shake_time = current_time
 
@@ -59,3 +63,33 @@ func on_shake_detected():
 	# $ShakeSound.play()
 	
 	print("爱心出现！位置: ", heart.position)
+
+
+func _on_hub_button_down() -> void:
+	Global.mode = "hub"
+	xinqing.hide()
+	xinqing.process_mode = Node.PROCESS_MODE_DISABLED
+	hub.show()
+	hub.process_mode = Node.PROCESS_MODE_INHERIT
+	settings.hide()
+	settings.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _on_心情_button_down() -> void:
+	Global.mode = "xinqing"
+	xinqing.show()
+	xinqing.process_mode = Node.PROCESS_MODE_INHERIT
+	hub.hide()
+	hub.process_mode = Node.PROCESS_MODE_DISABLED
+	settings.hide()
+	settings.process_mode = Node.PROCESS_MODE_DISABLED
+
+
+func _on_settings_button_down() -> void:
+	Global.mode = "setting"
+	settings.show()
+	settings.process_mode = Node.PROCESS_MODE_INHERIT
+	hub.hide()
+	hub.process_mode = Node.PROCESS_MODE_DISABLED
+	xinqing.hide()
+	xinqing.process_mode = Node.PROCESS_MODE_DISABLED

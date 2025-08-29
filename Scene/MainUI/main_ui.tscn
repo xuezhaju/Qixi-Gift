@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1lknwluq7htl"]
+[gd_scene load_steps=8 format=3 uid="uid://1lknwluq7htl"]
 
 [ext_resource type="Script" uid="uid://cl41510eb5ldc" path="res://Scene/MainUI/main_ui.gd" id="1_82sue"]
 [ext_resource type="Script" uid="uid://qsal34y3mhpr" path="res://Scene/MainUI/相识.gd" id="1_xp8vy"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://xuupa8maiieo" path="res://Scene/MainUI/话语.gd" id="3_82sue"]
 [ext_resource type="Script" uid="uid://choti8snaxwaw" path="res://Scene/MainUI/picture.gd" id="4_6piqr"]
 [ext_resource type="Script" uid="uid://bqx0l43he0ol1" path="res://Scene/MainUI/messages.gd" id="6_n61pf"]
+[ext_resource type="Script" uid="uid://dvfblq2ae40ww" path="res://Scene/MainUI/xinqing.gd" id="7_o613n"]
 
 [node name="MainUI" type="Control"]
 layout_mode = 3
@@ -119,11 +120,184 @@ offset_bottom = 1147.0
 color = Color(0.909804, 0.905882, 0.690196, 1)
 script = ExtResource("6_n61pf")
 
-[node name="DateLabel" type="Label" parent="hub/messages"]
+[node name="DateLabel" type="RichTextLabel" parent="hub/messages"]
 layout_mode = 2
+offset_top = 80.0
 offset_right = 600.0
-offset_bottom = 20.0
+offset_bottom = 698.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 40
+theme_override_font_sizes/italics_font_size = 40
+theme_override_font_sizes/mono_font_size = 40
+theme_override_font_sizes/normal_font_size = 40
+theme_override_font_sizes/bold_font_size = 40
+
+[node name="Settings" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="center" type="CenterContainer" parent="Settings"]
+custom_minimum_size = Vector2(720, 1200)
+layout_mode = 0
+offset_top = 7.0
+offset_right = 720.0
+offset_bottom = 1207.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/center"]
+custom_minimum_size = Vector2(480, 0)
+layout_mode = 2
+theme_override_constants/separation = 120
+alignment = 1
+
+[node name="BackColor" type="Label" parent="Settings/center/VBoxContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "背景色"
+
+[node name="BackColor" type="ColorPickerButton" parent="Settings/center/VBoxContainer/BackColor"]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 0
+offset_left = 178.0
+offset_right = 398.0
+offset_bottom = 60.0
+color = Color(0.960784, 0.960784, 0.862745, 1)
+
+[node name="MainColor" type="Label" parent="Settings/center/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "主题色"
+
+[node name="MainColor" type="ColorPickerButton" parent="Settings/center/VBoxContainer/MainColor"]
+custom_minimum_size = Vector2(220, 60)
+layout_mode = 0
+offset_left = 178.0
+offset_right = 398.0
+offset_bottom = 60.0
+color = Color(0.909804, 0.905882, 0.690196, 1)
+
+[node name="BGM" type="Label" parent="Settings/center/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "背景音乐"
+
+[node name="CheckButton" type="CheckButton" parent="Settings/center/VBoxContainer/BGM"]
+layout_mode = 0
+offset_left = 252.0
+offset_top = -8.0
+offset_right = 296.0
+offset_bottom = 16.0
+scale = Vector2(3, 3)
+
+[node name="xinqing" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_o613n")
+
+[node name="Label" type="Label" parent="xinqing"]
+layout_mode = 2
+offset_left = 198.0
+offset_top = 80.0
+offset_right = 513.0
+offset_bottom = 153.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "今天心情如何?"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="xinqing"]
+layout_mode = 2
+offset_left = 120.0
+offset_top = 750.0
+offset_right = 720.0
+offset_bottom = 1150.0
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 60
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="xinqing/VBoxContainer"]
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
+color = Color(0.909804, 0.905882, 0.690196, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="xinqing/VBoxContainer/ColorRect"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+offset_left = 52.0
+offset_top = 54.0
+offset_right = 552.0
+offset_bottom = 354.0
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/bold_italics_font_size = 50
+theme_override_font_sizes/italics_font_size = 50
+theme_override_font_sizes/mono_font_size = 50
+theme_override_font_sizes/normal_font_size = 50
+theme_override_font_sizes/bold_font_size = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="xinqing"]
+custom_minimum_size = Vector2(420, 50)
+layout_mode = 2
+offset_left = 150.0
+offset_top = 280.0
+offset_right = 570.0
+offset_bottom = 665.0
+theme_override_constants/separation = 40
+
+[node name="Happy" type="Button" parent="xinqing/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
+text = "Happy~"
+
+[node name="Justsoso" type="Button" parent="xinqing/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Just so so."
+
+[node name="Sad" type="Button" parent="xinqing/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Sad..."
+
+[node name="Angry" type="Button" parent="xinqing/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Angry"
+
+[node name="Afraid" type="Button" parent="xinqing/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 30
+text = "Afraid
+"
+
+[connection signal="button_down" from="ColorRects/底栏/Buttons/HUB" to="." method="_on_hub_button_down"]
+[connection signal="button_down" from="ColorRects/底栏/Buttons/心情" to="." method="_on_心情_button_down"]
+[connection signal="button_down" from="ColorRects/底栏/Buttons/Settings" to="." method="_on_settings_button_down"]
+[connection signal="button_down" from="xinqing/VBoxContainer2/Happy" to="xinqing" method="_on_happy_button_down"]
+[connection signal="button_down" from="xinqing/VBoxContainer2/Justsoso" to="xinqing" method="_on_justsoso_button_down"]
+[connection signal="button_down" from="xinqing/VBoxContainer2/Sad" to="xinqing" method="_on_sad_button_down"]
+[connection signal="button_down" from="xinqing/VBoxContainer2/Angry" to="xinqing" method="_on_angry_button_down"]
+[connection signal="button_down" from="xinqing/VBoxContainer2/Afraid" to="xinqing" method="_on_afraid_button_down"]
