@@ -13,7 +13,7 @@ config_version=5
 config/name="Qixi Gift"
 run/main_scene="uid://1lknwluq7htl"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
+config/icon="uid://7uaml31ukxey"
 
 [autoload]
 
